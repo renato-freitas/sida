@@ -23,4 +23,4 @@ Ferramentas como: D2RQ-R2RML, SILK, SIEVE, LDIF foram utilizadas para construç�
 2. Extrair e transformar os dados das fontes selecionadas, possivelmente heterogêneos, em grafos RDF.
 3. Identificar links semânticos entre as fontes de dados.
 4. Combinar e fundir representações do mesmo objeto em fontes distintas numa visão homogeneizada.
-5. Realizar consultas parametrizadas a fonte de dados integrada usando o vocabulário da O D e obter o cálculo da probabilidade do risco de óbito-infantil.
+5. Realizar consultas parametrizadas a fonte de dados integrada usando o vocabulário da O D e obter o cálculo da probabilidade do risco de óbito-materno-infantil.
