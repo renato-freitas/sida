@@ -1,0 +1,107 @@
+@prefix map: <#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix rr: <http://www.w3.org/ns/r2rml#>.
+@prefix vocab: <vocab/>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+map:cliente
+    rr:logicalTable [ rr:tableName "`tcc2`.`cliente`"; ];
+    rr:subjectMap [ rr:class vocab:cliente; rr:template "cliente/{`id`}"; ];
+    rr:predicateObjectMap [
+        rr:predicate rdfs:label;
+        rr:objectMap [ rr:termType rr:Literal; rr:template "cliente #{`id`}"; ];
+    ];
+    rr:predicateObjectMap [
+        rr:predicate vocab:cliente_grupo_trab_id;
+        rr:objectMap [ rr:column "`grupo_trab_id`"; ];
+    ];
+    rr:predicateObjectMap [
+        rr:predicate vocab:cliente_cpf;
+        rr:objectMap [ rr:column "`cpf`"; ];
+    ];
+    rr:predicateObjectMap [
+        rr:predicate vocab:cliente_nome;
+        rr:objectMap [ rr:column "`nome`"; ];
+    ];
+    rr:predicateObjectMap [
+        rr:predicate vocab:cliente_id;
+        rr:objectMap [ rr:column "`id`"; ];
+    ];
+    .
+map:grupo_de_trabalho
+    rr:logicalTable [ rr:tableName "`tcc2`.`grupo_de_trabalho`"; ];
+    rr:subjectMap [ rr:class vocab:grupo_de_trabalho; rr:template "grupo_de_trabalho/{`id`}"; ];
+    rr:predicateObjectMap [
+        rr:predicate vocab:grupo_de_trabalho_cidade;
+        rr:objectMap [ rr:column "`cidade`"; ];
+    ];
+    rr:predicateObjectMap [
+        rr:predicate vocab:grupo_de_trabalho_nome;
+        rr:objectMap [ rr:column "`nome`"; ];
+    ];
+    rr:predicateObjectMap [
+        rr:predicate vocab:grupo_de_trabalho_id;
+        rr:objectMap [ rr:column "`id`"; ];
+    ];
+    rr:predicateObjectMap [
+        rr:predicate rdfs:label;
+        rr:objectMap [ rr:termType rr:Literal; rr:template "grupo_de_trabalho #{`id`}"; ];
+    ];
+    .
+map:empregado
+    rr:logicalTable [ rr:tableName "`tcc2`.`empregado`"; ];
+    rr:subjectMap [ rr:class vocab:empregado; rr:template "empregado/{`id`}"; ];
+    rr:predicateObjectMap [
+        rr:predicate vocab:empregado_nome;
+        rr:objectMap [ rr:column "`nome`"; ];
+    ];
+    rr:predicateObjectMap [
+        rr:predicate vocab:empregado_grupo_trab_id;
+        rr:objectMap [ rr:column "`grupo_trab_id`"; ];
+    ];
+    rr:predicateObjectMap [
+        rr:predicate vocab:empregado_cpf;
+        rr:objectMap [ rr:column "`cpf`"; ];
+    ];
+    rr:predicateObjectMap [
+        rr:predicate vocab:empregado_idade;
+        rr:objectMap [ rr:column "`idade`"; ];
+    ];
+    rr:predicateObjectMap [
+        rr:predicate vocab:empregado_id;
+        rr:objectMap [ rr:column "`id`"; ];
+    ];
+    rr:predicateObjectMap [
+        rr:predicate vocab:empregado_funcao;
+        rr:objectMap [ rr:column "`funcao`"; ];
+    ];
+    rr:predicateObjectMap [
+        rr:predicate rdfs:label;
+        rr:objectMap [ rr:termType rr:Literal; rr:template "empregado #{`id`}"; ];
+    ];
+    .
+map:universitario
+    rr:logicalTable [ rr:tableName "`tcc2`.`universitario`"; ];
+    rr:subjectMap [ rr:class vocab:universitario; rr:template "universitario/{`id`}"; ];
+    rr:predicateObjectMap [
+        rr:predicate vocab:universitario_docIdentificacao;
+        rr:objectMap [ rr:column "`docIdentificacao`"; ];
+    ];
+    rr:predicateObjectMap [
+        rr:predicate vocab:universitario_dtnascimento;
+        rr:objectMap [ rr:column "`dtnascimento`"; ];
+    ];
+    rr:predicateObjectMap [
+        rr:predicate vocab:universitario_id;
+        rr:objectMap [ rr:column "`id`"; ];
+    ];
+    rr:predicateObjectMap [
+        rr:predicate rdfs:label;
+        rr:objectMap [ rr:termType rr:Literal; rr:template "universitario #{`id`}"; ];
+    ];
+    rr:predicateObjectMap [
+        rr:predicate vocab:universitario_grupo_trab_id;
+        rr:objectMap [ rr:column "`grupo_trab_id`"; ];
+    ];
+    .

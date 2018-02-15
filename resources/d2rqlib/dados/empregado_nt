@@ -1,0 +1,27 @@
+<http://localhost:2020/empregado/349> <http://www.w3.org/2002/07/owl#sameAs> <http://localhost:2020/universitario/349> .
+<http://localhost:2020/empregado/630> <http://www.w3.org/2002/07/owl#sameAs> <http://localhost:2020/universitario/630> .
+<http://localhost:2020/empregado/631> <http://www.w3.org/2002/07/owl#sameAs> <http://localhost:2020/universitario/631> .
+<http://localhost:2020/empregado/349> <http://www.w3.org/2002/07/owl#sameAs> <http://localhost:2020/cliente/349> .
+<http://localhost:2020/empregado/630> <http://www.w3.org/2002/07/owl#sameAs> <http://localhost:2020/cliente/630> .
+<http://localhost:2020/empregado/631> <http://www.w3.org/2002/07/owl#sameAs> <http://localhost:2020/cliente/631> .
+<http://localhost:2020/empregado/349> <http://data.empregado.com.br/vocab#cpf> "349" .
+<http://localhost:2020/empregado/630> <http://data.empregado.com.br/vocab#cpf> "630" .
+<http://localhost:2020/empregado/631> <http://data.empregado.com.br/vocab#cpf> "631" .
+<http://localhost:2020/empregado/349> <http://data.empregado.com.br/vocab#nome> "smith" .
+<http://localhost:2020/empregado/630> <http://data.empregado.com.br/vocab#nome> "renato" .
+<http://localhost:2020/empregado/631> <http://data.empregado.com.br/vocab#nome> "maia silva freitas" .
+<http://localhost:2020/empregado/349> <http://data.empregado.com.br/vocab#id> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://localhost:2020/empregado/630> <http://data.empregado.com.br/vocab#id> "2"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://localhost:2020/empregado/631> <http://data.empregado.com.br/vocab#id> "3"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://localhost:2020/empregado/349> <http://www.w3.org/2000/01/rdf-schema#label> "empregado #1" .
+<http://localhost:2020/empregado/630> <http://www.w3.org/2000/01/rdf-schema#label> "empregado #2" .
+<http://localhost:2020/empregado/631> <http://www.w3.org/2000/01/rdf-schema#label> "empregado #3" .
+<http://localhost:2020/empregado/349> <http://data.empregado.com.br/vocab#funcao> "clerk" .
+<http://localhost:2020/empregado/630> <http://data.empregado.com.br/vocab#funcao> "diver" .
+<http://localhost:2020/empregado/631> <http://data.empregado.com.br/vocab#funcao> "mestre" .
+<http://localhost:2020/empregado/349> <http://data.empregado.com.br/vocab#idade> "22"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://localhost:2020/empregado/630> <http://data.empregado.com.br/vocab#idade> "32"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://localhost:2020/empregado/631> <http://data.empregado.com.br/vocab#idade> "16"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://localhost:2020/empregado/349> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data.empregado.com.br/vocab#Empregado> .
+<http://localhost:2020/empregado/630> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data.empregado.com.br/vocab#Empregado> .
+<http://localhost:2020/empregado/631> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data.empregado.com.br/vocab#Empregado> .

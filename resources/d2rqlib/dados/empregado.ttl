@@ -1,0 +1,44 @@
+@prefix map: <#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix rr: <http://www.w3.org/ns/r2rml#>.
+@prefix emp: <http://data.empregado.com.br/vocab#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+map:empregado
+    rr:logicalTable [ rr:tableName "`tcc2`.`empregado`"; ];
+    rr:subjectMap [ rr:class emp:Empregado; rr:template "empregado/{`cpf`}"; ];
+    rr:predicateObjectMap [
+        rr:predicate owl:sameAs;
+        rr:objectMap [ rr:class emp:Cliente; rr:template "cliente/{`cpf`}"; ];
+    ];
+    rr:predicateObjectMap [
+        rr:predicate owl:sameAs;
+        rr:objectMap [ rr:class emp:Universitario; rr:template "universitario/{`cpf`}"; ];
+    ];
+    rr:predicateObjectMap [
+        rr:predicate emp:nome;
+        rr:objectMap [ rr:column "`nome`"; ];
+    ];
+    rr:predicateObjectMap [
+        rr:predicate rdfs:label;
+        rr:objectMap [ rr:termType rr:Literal; rr:template "empregado #{`id`}"; ];
+    ];
+    rr:predicateObjectMap [
+        rr:predicate emp:funcao;
+        rr:objectMap [ rr:column "`funcao`"; ];
+    ];
+    rr:predicateObjectMap [
+        rr:predicate emp:idade;
+        rr:objectMap [ rr:column "`idade`"; ];
+    ];
+    rr:predicateObjectMap [
+        rr:predicate emp:cpf;
+        rr:objectMap [ rr:column "`cpf`"; ];
+    ];
+    rr:predicateObjectMap [
+        rr:predicate emp:id;
+        rr:objectMap [ rr:column "`id`"; ];
+    ];
+    .

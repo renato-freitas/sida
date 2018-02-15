@@ -1,0 +1,25 @@
+<http://localhost:2020/cliente/630> <http://data.cliente.com.br/vocab#id> "2"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://localhost:2020/cliente/631> <http://data.cliente.com.br/vocab#id> "3"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://localhost:2020/cliente/632> <http://data.cliente.com.br/vocab#id> "4"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://localhost:2020/cliente/122> <http://data.cliente.com.br/vocab#id> "102"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://localhost:2020/cliente/123> <http://data.cliente.com.br/vocab#id> "129"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://localhost:2020/cliente/630> <http://data.cliente.com.br/vocab#cpf> "630" .
+<http://localhost:2020/cliente/631> <http://data.cliente.com.br/vocab#cpf> "631" .
+<http://localhost:2020/cliente/632> <http://data.cliente.com.br/vocab#cpf> "632" .
+<http://localhost:2020/cliente/122> <http://data.cliente.com.br/vocab#cpf> "122" .
+<http://localhost:2020/cliente/123> <http://data.cliente.com.br/vocab#cpf> "123" .
+<http://localhost:2020/cliente/630> <http://data.cliente.com.br/vocab#nome> "renato" .
+<http://localhost:2020/cliente/631> <http://data.cliente.com.br/vocab#nome> "ravi" .
+<http://localhost:2020/cliente/632> <http://data.cliente.com.br/vocab#nome> "eliene" .
+<http://localhost:2020/cliente/122> <http://data.cliente.com.br/vocab#nome> "fred" .
+<http://localhost:2020/cliente/123> <http://data.cliente.com.br/vocab#nome> "tost\u00E3o" .
+<http://localhost:2020/cliente/630> <http://www.w3.org/2000/01/rdf-schema#label> "cliente #2" .
+<http://localhost:2020/cliente/631> <http://www.w3.org/2000/01/rdf-schema#label> "cliente #3" .
+<http://localhost:2020/cliente/632> <http://www.w3.org/2000/01/rdf-schema#label> "cliente #4" .
+<http://localhost:2020/cliente/122> <http://www.w3.org/2000/01/rdf-schema#label> "cliente #102" .
+<http://localhost:2020/cliente/123> <http://www.w3.org/2000/01/rdf-schema#label> "cliente #129" .
+<http://localhost:2020/cliente/630> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data.cliente.com.br/vocab#Cliente> .
+<http://localhost:2020/cliente/631> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data.cliente.com.br/vocab#Cliente> .
+<http://localhost:2020/cliente/632> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data.cliente.com.br/vocab#Cliente> .
+<http://localhost:2020/cliente/122> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data.cliente.com.br/vocab#Cliente> .
+<http://localhost:2020/cliente/123> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data.cliente.com.br/vocab#Cliente> .

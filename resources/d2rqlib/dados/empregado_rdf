@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:emp="http://data.empregado.com.br/vocab#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:map="http://localhost:2020/#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+  xml:base="http://localhost:2020/" > 
+  <rdf:Description rdf:about="empregado/631">
+    <owl:sameAs rdf:resource="cliente/631"/>
+    <rdfs:label>empregado #3</rdfs:label>
+    <emp:funcao>mestre</emp:funcao>
+    <emp:id rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</emp:id>
+    <emp:idade rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">16</emp:idade>
+    <emp:nome>maia silva freitas</emp:nome>
+    <emp:cpf>631</emp:cpf>
+    <rdf:type rdf:resource="http://data.empregado.com.br/vocab#Empregado"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="empregado/349">
+    <owl:sameAs rdf:resource="cliente/349"/>
+    <rdfs:label>empregado #1</rdfs:label>
+    <emp:funcao>clerk</emp:funcao>
+    <emp:id rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</emp:id>
+    <emp:idade rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">22</emp:idade>
+    <emp:nome>smith</emp:nome>
+    <emp:cpf>349</emp:cpf>
+    <rdf:type rdf:resource="http://data.empregado.com.br/vocab#Empregado"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="empregado/630">
+    <owl:sameAs rdf:resource="cliente/630"/>
+    <rdfs:label>empregado #2</rdfs:label>
+    <emp:funcao>diver</emp:funcao>
+    <emp:id rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</emp:id>
+    <emp:idade rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">32</emp:idade>
+    <emp:nome>renato</emp:nome>
+    <emp:cpf>630</emp:cpf>
+    <rdf:type rdf:resource="http://data.empregado.com.br/vocab#Empregado"/>
+  </rdf:Description>
+</rdf:RDF>

@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:cli="http://data.cliente.com.br/vocab#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:map="http://localhost:2020/#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+  xml:base="http://localhost:2020/" > 
+  <rdf:Description rdf:about="cliente/632">
+    <cli:cpf>632</cli:cpf>
+    <rdfs:label>cliente #4</rdfs:label>
+    <cli:id rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</cli:id>
+    <cli:nome>eliene</cli:nome>
+    <rdf:type rdf:resource="http://data.cliente.com.br/vocab#Cliente"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="cliente/631">
+    <cli:cpf>631</cli:cpf>
+    <rdfs:label>cliente #3</rdfs:label>
+    <cli:id rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</cli:id>
+    <cli:nome>ravi</cli:nome>
+    <rdf:type rdf:resource="http://data.cliente.com.br/vocab#Cliente"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="cliente/123">
+    <cli:cpf>123</cli:cpf>
+    <rdfs:label>cliente #129</rdfs:label>
+    <cli:id rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">129</cli:id>
+    <cli:nome>tostão</cli:nome>
+    <rdf:type rdf:resource="http://data.cliente.com.br/vocab#Cliente"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="cliente/630">
+    <cli:cpf>630</cli:cpf>
+    <rdfs:label>cliente #2</rdfs:label>
+    <cli:id rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</cli:id>
+    <cli:nome>renato</cli:nome>
+    <rdf:type rdf:resource="http://data.cliente.com.br/vocab#Cliente"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="cliente/122">
+    <cli:cpf>122</cli:cpf>
+    <rdfs:label>cliente #102</rdfs:label>
+    <cli:id rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">102</cli:id>
+    <cli:nome>fred</cli:nome>
+    <rdf:type rdf:resource="http://data.cliente.com.br/vocab#Cliente"/>
+  </rdf:Description>
+</rdf:RDF>

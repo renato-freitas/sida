@@ -1,0 +1,1 @@
+./dump-rdf -u root -p r00t -f $rdf-format [turtle, rdf/xml, rdf/xml-abbrev, n3, n-triple]$ -j jdbc:mysql://localhost/tcc2 $generated-mapping$ > $generated-rdf-dump$

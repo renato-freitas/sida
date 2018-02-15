@@ -1,0 +1,28 @@
+@prefix map: <#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix rr: <http://www.w3.org/ns/r2rml#>.
+@prefix uni: <http://data.universitario.com.br/vocab#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+map:universitario
+    rr:logicalTable [ rr:tableName "`tcc2`.`universitario`"; ];
+    rr:subjectMap [ rr:class uni:Universitario; rr:template "universitario/{`id`}"; ];
+    rr:predicateObjectMap [
+        rr:predicate uni:docIdentificacao;
+        rr:objectMap [ rr:column "`docIdentificacao`"; ];
+    ];
+    rr:predicateObjectMap [
+        rr:predicate rdfs:label;
+        rr:objectMap [ rr:termType rr:Literal; rr:template "universitario #{`id`}"; ];
+    ];
+    rr:predicateObjectMap [
+        rr:predicate uni:id;
+        rr:objectMap [ rr:column "`id`"; ];
+    ];
+    rr:predicateObjectMap [
+        rr:predicate uni:dtnascimento;
+        rr:objectMap [ rr:column "`dtnascimento`"; ];
+    ];
+    .

@@ -1,0 +1,25 @@
+<http://localhost:2020/#cliente/1> <http://www.semanticweb.org/ontologies/2018/0/servidor#cpf> "123" .
+<http://localhost:2020/#cliente/2> <http://www.semanticweb.org/ontologies/2018/0/servidor#cpf> "630" .
+<http://localhost:2020/#cliente/3> <http://www.semanticweb.org/ontologies/2018/0/servidor#cpf> "631" .
+<http://localhost:2020/#cliente/4> <http://www.semanticweb.org/ontologies/2018/0/servidor#cpf> "632" .
+<http://localhost:2020/#cliente/5> <http://www.semanticweb.org/ontologies/2018/0/servidor#cpf> "122" .
+<http://localhost:2020/#cliente/1> <http://www.w3.org/2000/01/rdf-schema#label> "cliente #1" .
+<http://localhost:2020/#cliente/2> <http://www.w3.org/2000/01/rdf-schema#label> "cliente #2" .
+<http://localhost:2020/#cliente/3> <http://www.w3.org/2000/01/rdf-schema#label> "cliente #3" .
+<http://localhost:2020/#cliente/4> <http://www.w3.org/2000/01/rdf-schema#label> "cliente #4" .
+<http://localhost:2020/#cliente/5> <http://www.w3.org/2000/01/rdf-schema#label> "cliente #5" .
+<http://localhost:2020/#cliente/1> <http://www.semanticweb.org/ontologies/2018/0/servidor#id> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://localhost:2020/#cliente/2> <http://www.semanticweb.org/ontologies/2018/0/servidor#id> "2"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://localhost:2020/#cliente/3> <http://www.semanticweb.org/ontologies/2018/0/servidor#id> "3"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://localhost:2020/#cliente/4> <http://www.semanticweb.org/ontologies/2018/0/servidor#id> "4"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://localhost:2020/#cliente/5> <http://www.semanticweb.org/ontologies/2018/0/servidor#id> "5"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://localhost:2020/#cliente/1> <http://xmlns.com/foaf/0.1/name> "tost\u00E3o" .
+<http://localhost:2020/#cliente/2> <http://xmlns.com/foaf/0.1/name> "renato" .
+<http://localhost:2020/#cliente/3> <http://xmlns.com/foaf/0.1/name> "ravi" .
+<http://localhost:2020/#cliente/4> <http://xmlns.com/foaf/0.1/name> "eliene" .
+<http://localhost:2020/#cliente/5> <http://xmlns.com/foaf/0.1/name> "manuel n" .
+<http://localhost:2020/#cliente/1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semanticweb.org/ontologies/2018/0/servidor#cliente> .
+<http://localhost:2020/#cliente/2> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semanticweb.org/ontologies/2018/0/servidor#cliente> .
+<http://localhost:2020/#cliente/3> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semanticweb.org/ontologies/2018/0/servidor#cliente> .
+<http://localhost:2020/#cliente/4> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semanticweb.org/ontologies/2018/0/servidor#cliente> .
+<http://localhost:2020/#cliente/5> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semanticweb.org/ontologies/2018/0/servidor#cliente> .

@@ -1,0 +1,76 @@
+<http://localhost:2020/grupo_de_trabalho/1> <http://www.w3.org/2000/01/rdf-schema#label> "grupo_de_trabalho #1" .
+<http://localhost:2020/grupo_de_trabalho/2> <http://www.w3.org/2000/01/rdf-schema#label> "grupo_de_trabalho #2" .
+<http://localhost:2020/grupo_de_trabalho/1> <http://localhost:2020/vocab/grupo_de_trabalho_id> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://localhost:2020/grupo_de_trabalho/2> <http://localhost:2020/vocab/grupo_de_trabalho_id> "2"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://localhost:2020/grupo_de_trabalho/1> <http://localhost:2020/vocab/grupo_de_trabalho_nome> "UFERSA" .
+<http://localhost:2020/grupo_de_trabalho/2> <http://localhost:2020/vocab/grupo_de_trabalho_nome> "IFCE" .
+<http://localhost:2020/grupo_de_trabalho/1> <http://localhost:2020/vocab/grupo_de_trabalho_cidade> "PAU DOS FERROS" .
+<http://localhost:2020/grupo_de_trabalho/2> <http://localhost:2020/vocab/grupo_de_trabalho_cidade> "ARACATI" .
+<http://localhost:2020/grupo_de_trabalho/1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://localhost:2020/vocab/grupo_de_trabalho> .
+<http://localhost:2020/grupo_de_trabalho/2> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://localhost:2020/vocab/grupo_de_trabalho> .
+<http://localhost:2020/cliente/2> <http://www.w3.org/2000/01/rdf-schema#label> "cliente #2" .
+<http://localhost:2020/cliente/3> <http://www.w3.org/2000/01/rdf-schema#label> "cliente #3" .
+<http://localhost:2020/cliente/4> <http://www.w3.org/2000/01/rdf-schema#label> "cliente #4" .
+<http://localhost:2020/cliente/102> <http://www.w3.org/2000/01/rdf-schema#label> "cliente #102" .
+<http://localhost:2020/cliente/129> <http://www.w3.org/2000/01/rdf-schema#label> "cliente #129" .
+<http://localhost:2020/cliente/2> <http://localhost:2020/vocab/cliente_grupo_trab_id> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://localhost:2020/cliente/3> <http://localhost:2020/vocab/cliente_grupo_trab_id> "2"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://localhost:2020/cliente/4> <http://localhost:2020/vocab/cliente_grupo_trab_id> "2"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://localhost:2020/cliente/102> <http://localhost:2020/vocab/cliente_grupo_trab_id> "2"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://localhost:2020/cliente/129> <http://localhost:2020/vocab/cliente_grupo_trab_id> "2"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://localhost:2020/cliente/2> <http://localhost:2020/vocab/cliente_id> "2"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://localhost:2020/cliente/3> <http://localhost:2020/vocab/cliente_id> "3"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://localhost:2020/cliente/4> <http://localhost:2020/vocab/cliente_id> "4"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://localhost:2020/cliente/102> <http://localhost:2020/vocab/cliente_id> "102"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://localhost:2020/cliente/129> <http://localhost:2020/vocab/cliente_id> "129"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://localhost:2020/cliente/2> <http://localhost:2020/vocab/cliente_nome> "renato" .
+<http://localhost:2020/cliente/3> <http://localhost:2020/vocab/cliente_nome> "ravi" .
+<http://localhost:2020/cliente/4> <http://localhost:2020/vocab/cliente_nome> "eliene" .
+<http://localhost:2020/cliente/102> <http://localhost:2020/vocab/cliente_nome> "fred" .
+<http://localhost:2020/cliente/129> <http://localhost:2020/vocab/cliente_nome> "tost\u00E3o" .
+<http://localhost:2020/cliente/2> <http://localhost:2020/vocab/cliente_cpf> "630" .
+<http://localhost:2020/cliente/3> <http://localhost:2020/vocab/cliente_cpf> "631" .
+<http://localhost:2020/cliente/4> <http://localhost:2020/vocab/cliente_cpf> "632" .
+<http://localhost:2020/cliente/102> <http://localhost:2020/vocab/cliente_cpf> "122" .
+<http://localhost:2020/cliente/129> <http://localhost:2020/vocab/cliente_cpf> "123" .
+<http://localhost:2020/cliente/2> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://localhost:2020/vocab/cliente> .
+<http://localhost:2020/cliente/3> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://localhost:2020/vocab/cliente> .
+<http://localhost:2020/cliente/4> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://localhost:2020/vocab/cliente> .
+<http://localhost:2020/cliente/102> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://localhost:2020/vocab/cliente> .
+<http://localhost:2020/cliente/129> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://localhost:2020/vocab/cliente> .
+<http://localhost:2020/empregado/1> <http://localhost:2020/vocab/empregado_funcao> "clerk" .
+<http://localhost:2020/empregado/2> <http://localhost:2020/vocab/empregado_funcao> "diver" .
+<http://localhost:2020/empregado/3> <http://localhost:2020/vocab/empregado_funcao> "mestre" .
+<http://localhost:2020/empregado/1> <http://localhost:2020/vocab/empregado_idade> "22"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://localhost:2020/empregado/2> <http://localhost:2020/vocab/empregado_idade> "32"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://localhost:2020/empregado/3> <http://localhost:2020/vocab/empregado_idade> "16"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://localhost:2020/empregado/1> <http://www.w3.org/2000/01/rdf-schema#label> "empregado #1" .
+<http://localhost:2020/empregado/2> <http://www.w3.org/2000/01/rdf-schema#label> "empregado #2" .
+<http://localhost:2020/empregado/3> <http://www.w3.org/2000/01/rdf-schema#label> "empregado #3" .
+<http://localhost:2020/empregado/1> <http://localhost:2020/vocab/empregado_grupo_trab_id> "2"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://localhost:2020/empregado/2> <http://localhost:2020/vocab/empregado_grupo_trab_id> "2"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://localhost:2020/empregado/3> <http://localhost:2020/vocab/empregado_grupo_trab_id> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://localhost:2020/empregado/1> <http://localhost:2020/vocab/empregado_cpf> "349" .
+<http://localhost:2020/empregado/2> <http://localhost:2020/vocab/empregado_cpf> "630" .
+<http://localhost:2020/empregado/3> <http://localhost:2020/vocab/empregado_cpf> "631" .
+<http://localhost:2020/empregado/1> <http://localhost:2020/vocab/empregado_id> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://localhost:2020/empregado/2> <http://localhost:2020/vocab/empregado_id> "2"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://localhost:2020/empregado/3> <http://localhost:2020/vocab/empregado_id> "3"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://localhost:2020/empregado/1> <http://localhost:2020/vocab/empregado_nome> "smith" .
+<http://localhost:2020/empregado/2> <http://localhost:2020/vocab/empregado_nome> "renato" .
+<http://localhost:2020/empregado/3> <http://localhost:2020/vocab/empregado_nome> "maia silva freitas" .
+<http://localhost:2020/empregado/1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://localhost:2020/vocab/empregado> .
+<http://localhost:2020/empregado/2> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://localhost:2020/vocab/empregado> .
+<http://localhost:2020/empregado/3> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://localhost:2020/vocab/empregado> .
+<http://localhost:2020/universitario/1> <http://localhost:2020/vocab/universitario_docIdentificacao> "630" .
+<http://localhost:2020/universitario/2> <http://localhost:2020/vocab/universitario_docIdentificacao> "590" .
+<http://localhost:2020/universitario/1> <http://localhost:2020/vocab/universitario_grupo_trab_id> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://localhost:2020/universitario/2> <http://localhost:2020/vocab/universitario_grupo_trab_id> "2"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://localhost:2020/universitario/1> <http://www.w3.org/2000/01/rdf-schema#label> "universitario #1" .
+<http://localhost:2020/universitario/2> <http://www.w3.org/2000/01/rdf-schema#label> "universitario #2" .
+<http://localhost:2020/universitario/1> <http://localhost:2020/vocab/universitario_id> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://localhost:2020/universitario/2> <http://localhost:2020/vocab/universitario_id> "2"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://localhost:2020/universitario/1> <http://localhost:2020/vocab/universitario_dtnascimento> "08021992" .
+<http://localhost:2020/universitario/2> <http://localhost:2020/vocab/universitario_dtnascimento> "09101981" .
+<http://localhost:2020/universitario/1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://localhost:2020/vocab/universitario> .
+<http://localhost:2020/universitario/2> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://localhost:2020/vocab/universitario> .

@@ -1,0 +1,28 @@
+@prefix map: <#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix rr: <http://www.w3.org/ns/r2rml#>.
+@prefix cli: <http://data.cliente.com.br/vocab#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+map:cliente
+    rr:logicalTable [ rr:tableName "`tcc2`.`cliente`"; ];
+    rr:subjectMap [ rr:class cli:Cliente; rr:template "cliente/{`cpf`}"; ];
+    rr:predicateObjectMap [
+        rr:predicate rdfs:label;
+        rr:objectMap [ rr:termType rr:Literal; rr:template "cliente #{`id`}"; ];
+    ];
+    rr:predicateObjectMap [
+        rr:predicate cli:nome;
+        rr:objectMap [ rr:column "`nome`"; ];
+    ];
+    rr:predicateObjectMap [
+        rr:predicate cli:cpf;
+        rr:objectMap [ rr:column "`cpf`"; ];
+    ];
+    rr:predicateObjectMap [
+        rr:predicate cli:id;
+        rr:objectMap [ rr:column "`id`"; ];
+    ];
+    .
