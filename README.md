@@ -1,5 +1,6 @@
 # Sida
-Sistema de Integração de Dados, Semi-Automático.
+Ferramenta Auxiliar para Integração de Dados, Semi-Automático.
+
 
 
 Esse projeto é parte do Trabalho de Conclusão de Curso Bacharelado em Ciência
