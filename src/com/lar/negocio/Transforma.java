@@ -1,11 +1,13 @@
 package com.lar.negocio;
 
+import javax.swing.JOptionPane;
 
 import com.lar.modelo.Dataset;
 
 public class Transforma {
-	public String[] comando;// = new String[3];//{"bash", "-c", ""};
-	private Dataset dataset;// = new Dataset();
+	
+	public String[] comando;
+	private Dataset dataset;
 
 	public Dataset getDataset(){
 		return this.dataset; 
@@ -16,29 +18,33 @@ public class Transforma {
 	
 	
 	public Transforma(Dataset ds){
-		//dataset = new Dataset();
+		
 		comando = new String[3];
 		comando[0] = "bash";
 		comando[1] = "-c";
-		//dadosBD = ds;
-		//tableToRML(getDataset());
+	
 		tableToRML(ds);
 	}
 	public Transforma(String in_ttl, Dataset ds){
-		//dataset = new Dataset();
+		
 		comando = new String[3];
 		comando[0] = "bash";
 		comando[1] = "-c";
+		
 		rmlToNTriple(in_ttl, ds);
 	}
 	
 
+	/**Faz o mapeamento da tabela para RDF Mapping Language*/
 	public void tableToRML(Dataset dataset){
 		try {
 			if(dataset.getServidorBD() == "MYSQL"){
 				comando[2] = mysqlStringConnectionToMapping(dataset);	
 			}
-			Runtime.getRuntime().exec(comando);
+			Process p = Runtime.getRuntime().exec(comando);
+			if(p != null) {
+				JOptionPane.showMessageDialog(null,"Sucessfull Dataset Choose!");
+			}
 		} catch (Exception e) {
 			e.getStackTrace();
 		}
@@ -68,7 +74,6 @@ public class Transforma {
 			   " --tables "+ds.getNomeTabela()+ 
 			   " jdbc:mysql://localhost/"+ds.getNomeDataset()+
 			   " > /tmp/"+ds.getNomeArquivoSaida()+".ttl";
-			   //" > resources/d2rqlib/"+ds.getNomeArquivoSaida()+".ttl";
 	}
 
 	public String mysqlStringConnectionToDump(String in_ttl, Dataset ds){

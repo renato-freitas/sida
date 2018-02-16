@@ -24,12 +24,12 @@ public class TelaEscolherDataset extends JFrame {
 
 	JPanel pCentral;
 
-	JLabel lblServidorBD = new JLabel("Servidor de BD");
-	JLabel lblNomeDataset = new JLabel("Nome do Dataset");
-	JLabel lblNomeTabela = new JLabel("Nome da tabela");
-	JLabel lblUsuario = new JLabel("Usuário");
-	JLabel lblSenha = new JLabel("Senha");
-	JLabel lblArquivoSaida = new JLabel("Nome do arquivo de saída");
+	JLabel lblServidorBD = new JLabel("DB Server");
+	JLabel lblNomeDataset = new JLabel("Dataset name");
+	JLabel lblNomeTabela = new JLabel("Table name");
+	JLabel lblUsuario = new JLabel("User");
+	JLabel lblSenha = new JLabel("Password");
+	JLabel lblArquivoSaida = new JLabel("Outfile name");
 
 	JTextField txtServidorBD = new JTextField(20);
 	JTextField txtNomeDataset = new JTextField(20);
@@ -40,18 +40,17 @@ public class TelaEscolherDataset extends JFrame {
 
 	JComboBox<String> cbServidorBD;
 
-	JButton btnOK = new JButton("ok");
-	JButton btnSair = new JButton("sair");
+	JButton btnOK = new JButton("Ok");
+	JButton btnSair = new JButton("Close");
 
-	private String[] servidoresBD = { "Escolhar um servidor", "MYSQL", "ORACLE", "POSTGRES", "MS-SQLSERVER" };
+	private String[] servidoresBD = { "Choose a DB-server", "MYSQL", "ORACLE", "POSTGRES", "MS-SQLSERVER" };
 
 	public TelaEscolherDataset() {
-		super("Escolher Dataset");
-
+		super("Choose Dataset");
+		
 		JPanel pCentral = new JPanel(new GridBagLayout());
 
 		cbServidorBD = new JComboBox<String>(servidoresBD);
-		//cbServidorBD.addActionListener(new ComboBoxListener());
 
 		GridBagConstraints constraints = new GridBagConstraints();
 		constraints.anchor = GridBagConstraints.WEST;
@@ -61,7 +60,7 @@ public class TelaEscolherDataset extends JFrame {
 		constraints.gridy = 0;
 		pCentral.add(lblServidorBD, constraints);
 		constraints.gridx = 1;
-		//pCentral.add(txtServidorBD, constraints);
+		
 		pCentral.add(cbServidorBD, constraints);
 
 		constraints.gridx = 0;
@@ -111,22 +110,20 @@ public class TelaEscolherDataset extends JFrame {
 		pCentral.add(btnSair, constraints);
 		btnSair.addActionListener(new ButtonsListener());
 
-		// set border for the panel
+		
 		pCentral.setBorder(BorderFactory.createTitledBorder(
 			BorderFactory.createEtchedBorder(), "Painel de Login"));
 
-		// add the panel to this frame
 		add(pCentral);
 		pack();
 		setLocationRelativeTo(null);
 	}
 
-	/**Obtem os dados do formulário
+	/**Obtém os dados do formulário para acessar o dataset.
 	 * Retorna um Dataset preenchido.
 	*/
 	public Dataset obtemDadosFormulario() {
-		//Dataset ds = new Dataset();
-		//TelaPrincipal.bdConexao.setServidorBD(servidorBD);
+		
 		Dataset ds = TelaPrincipal.bdConexao;
 		ds.setServidorBD(cbServidorBD.getSelectedItem().toString());
 		ds.setNomeDataset(txtNomeDataset.getText());
@@ -134,6 +131,7 @@ public class TelaEscolherDataset extends JFrame {
 		ds.setUsuario(txtUsuario.getText());
 		ds.setSenha(txtSenha.getText());
 		ds.setNomeArquivoSaida(txtArquivoSaida.getText());
+		
 		return ds;
 	}
 
@@ -141,18 +139,9 @@ public class TelaEscolherDataset extends JFrame {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			JButton botaoClicado = (JButton) e.getSource();
-			if (botaoClicado.getText() == "ok") {
-				System.out.println(botaoClicado.getText());
-
-				//Dataset dadosDoForm = obtemDadosFormulario();
-				System.out.println(obtemDadosFormulario().getServidorBD());
-				System.out.println(obtemDadosFormulario());
-				
-				//new Transforma().setDataset(obtemDadosFormulario());
+			if (botaoClicado.getText() == "Ok") {
 				new Transforma(obtemDadosFormulario());
-				
 			} else {
-				//System.out.println(botaoClicado.getText());
 				dispose();
 			}
 

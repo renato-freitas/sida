@@ -18,7 +18,7 @@ import com.lar.negocio.LinkSemantico;
 public class TelaPrincipal extends JFrame {
 
 	private static final long serialVersionUID = 1L;
-	public static Dataset bdConexao = new Dataset();
+	public static Dataset bdConexao;
 
 	JPanel pCentral;
 
@@ -33,6 +33,8 @@ public class TelaPrincipal extends JFrame {
 	public TelaPrincipal() {
 		super("SIDA - Sistema de Integração de Dados Semi-Automático");
 
+		bdConexao = new Dataset();
+		
 		JPanel pCentral = new JPanel(new GridBagLayout());
 
 		GridBagConstraints constraints = new GridBagConstraints();
@@ -66,10 +68,8 @@ public class TelaPrincipal extends JFrame {
 		pCentral.add(btnSair, constraints);
 		btnSair.addActionListener(new ButtonsListener());
 
-		// set border for the panel
 		pCentral.setBorder(BorderFactory.createTitledBorder(BorderFactory.createEtchedBorder(), "Menu"));
 
-		// add the panel to this frame
 		add(pCentral);
 		pack();
 		setLocationRelativeTo(null);
@@ -98,16 +98,6 @@ public class TelaPrincipal extends JFrame {
 				System.out.println("***Sida Closed!");
 				dispose();
 			}
-		}
-	}
-
-	class ComboBoxListener implements ActionListener {
-		@Override
-		@SuppressWarnings("unchecked")
-		public void actionPerformed(ActionEvent e) {
-			JComboBox<String> cb =  (JComboBox<String>)e.getSource();
-			String petName = (String) cb.getSelectedItem();
-			System.out.println(petName);
 		}
 	}
 }
