@@ -1,6 +1,5 @@
 package com.lar.visao;
 
-
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
@@ -42,6 +41,7 @@ public class TelaEditarEspecificacaoLinkSemantico extends JFrame{
 	private JComboBox<String> cbDatasetTarget = new JComboBox<String>();
 	private JComboBox<String> cbArquivoEdicao = new JComboBox<String>();
 
+	int count = 1;
 
 	public TelaEditarEspecificacaoLinkSemantico() {
 		panels();
@@ -72,10 +72,11 @@ public class TelaEditarEspecificacaoLinkSemantico extends JFrame{
 		rightPanel.add(lblEditarArquivoTmp);
 		rightPanel.add(cbArquivoEdicao);
 		
+		
 		btnSalvar.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				saveBtn();
+				saveBtn(); ++count;
 				cbArquivoEdicao.removeAllItems();
 				carregarComboArquivosTemporarios();
 			}
@@ -135,8 +136,7 @@ public class TelaEditarEspecificacaoLinkSemantico extends JFrame{
 		File file = null;
 		FileWriter out=null;
 		try {
-			
-			file = new File("/tmp/linkSpec.xml");
+			file = new File("/tmp/linkSpec"+count+".xml");
 			out = new FileWriter(file);     
 			out.write(textArea.getText());
 			out.close();
@@ -221,11 +221,11 @@ public class TelaEditarEspecificacaoLinkSemantico extends JFrame{
   "    <Prefix id=\"linkedmdb\" namespace=\"http://data.linkedmdb.org/resource/movie/\"/>\n"+
   "</Prefixes>\n"+
   "<DataSources>\n"+
-  "    <Dataset id=\"DBpedia\" type=\"file\">\n"+
+  "    <Dataset id=\""+cut_extension(dsSource)+"DB\" type=\"file\">\n"+
   "        <Param name=\"file\" value=\""+dsSource+"\"/>\n"+
   "        <Param name=\"format\" value=\"N-TRIPLE\"/>\n"+
   "    </Dataset>\n"+
-  "    <Dataset id=\"linkedmdb\" type=\"file\">\n"+
+  "    <Dataset id=\""+cut_extension(dsTarget)+"DB\" type=\"file\">\n"+
   "        <Param name=\"file\" value=\""+dsTarget+"\"/>\n"+
   "        <Param name=\"format\" value=\"N-TRIPLE\"/>\n"+
   "    </Dataset>\n"+
@@ -233,12 +233,12 @@ public class TelaEditarEspecificacaoLinkSemantico extends JFrame{
     
   "<Interlinks>\n"+
   "    <Interlink id=\"movies\">\n"+
-  "        <SourceDataset dataSource=\"DBpedia\" var=\"a\">\n"+
+  "        <SourceDataset dataSource=\""+cut_extension(dsSource)+"\" var=\"a\">\n"+
   "            <RestrictTo>\n"+
   "                ?a ?p ?v .\n"+
   "            </RestrictTo>\n"+
   "        </SourceDataset>\n"+
-  "        <TargetDataset dataSource=\"linkedmdb\" var=\"b\">\n"+
+  "        <TargetDataset dataSource=\""+cut_extension(dsTarget)+"\" var=\"b\">\n"+
   "            <RestrictTo>\n"+
   "                ?b ?p ?v .\n"+
   "            </RestrictTo>\n"+
@@ -276,6 +276,11 @@ public class TelaEditarEspecificacaoLinkSemantico extends JFrame{
   "    </Dataset>\n"+
   "</Outputs>\n"+
 "</Silk>";
+	}
+	
+	
+	private String cut_extension(String in) {
+		return in.substring(0, in.length() - 3);
 	}
 }
 
