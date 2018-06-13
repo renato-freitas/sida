@@ -1,0 +1,15 @@
+<http://localhost:2020/servidor/1> <http://www.w3.org/2000/01/rdf-schema#label> "servidor #1" .
+<http://localhost:2020/servidor/2> <http://www.w3.org/2000/01/rdf-schema#label> "servidor #2" .
+<http://localhost:2020/servidor/3> <http://www.w3.org/2000/01/rdf-schema#label> "servidor #3" .
+<http://localhost:2020/servidor/1> <http://xmlns.com/foaf/0.1/name> "eliene maia" .
+<http://localhost:2020/servidor/2> <http://xmlns.com/foaf/0.1/name> "filipi benjamin" .
+<http://localhost:2020/servidor/3> <http://xmlns.com/foaf/0.1/name> "jose renato" .
+<http://localhost:2020/servidor/1> <http://www.lar.com.br#cpf> "230" .
+<http://localhost:2020/servidor/2> <http://www.lar.com.br#cpf> "330" .
+<http://localhost:2020/servidor/3> <http://www.lar.com.br#cpf> "740" .
+<http://localhost:2020/servidor/1> <http://www.lar.com.br#id> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://localhost:2020/servidor/2> <http://www.lar.com.br#id> "2"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://localhost:2020/servidor/3> <http://www.lar.com.br#id> "3"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://localhost:2020/servidor/1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.lar.com.br#Servidor> .
+<http://localhost:2020/servidor/2> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.lar.com.br#Servidor> .
+<http://localhost:2020/servidor/3> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.lar.com.br#Servidor> .

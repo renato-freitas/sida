@@ -46,21 +46,21 @@ public class TelaPrincipal extends JFrame {
 		pCentral.add(btnEscolherDataset, constraints);
 		btnEscolherDataset.addActionListener(new ButtonsListener());
 		
-		constraints.gridx = 1;
-		pCentral.add(btnEditarMapeamento, constraints);
-		btnEditarMapeamento.addActionListener(new ButtonsListener());
-		
 		constraints.gridx = 0;
 		constraints.gridy = 1;
-		pCentral.add(btnCriarLinksSemanticos, constraints);
-		btnCriarLinksSemanticos.addActionListener(new ButtonsListener());
+		pCentral.add(btnEditarMapeamento, constraints);
+		btnEditarMapeamento.addActionListener(new ButtonsListener());
 		
 		constraints.gridx = 0;
 		constraints.gridy = 2;
 		pCentral.add(btnResolucaoIdentidade, constraints);
 		btnResolucaoIdentidade.addActionListener(new ButtonsListener());
 		
-
+		constraints.gridx = 0;
+		constraints.gridy = 3;
+		pCentral.add(btnCriarLinksSemanticos, constraints);
+		btnCriarLinksSemanticos.addActionListener(new ButtonsListener());
+		
 		constraints.gridx = 0;
 		constraints.gridy = 6;
 		constraints.gridwidth = 2;
@@ -89,7 +89,7 @@ public class TelaPrincipal extends JFrame {
 			}
 			else if(botaoClicado.getText() == "Semantic Links"){
 				LinkSemantico ls = new LinkSemantico();
-				ls.encontrarLinksSemanticos();
+				ls.foundSemanticLinks();
 			}
 			else if(botaoClicado.getText() == "Identity Resolution"){
 				new TelaEditarEspecificacaoLinkSemantico();

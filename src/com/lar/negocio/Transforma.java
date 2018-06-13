@@ -18,7 +18,6 @@ public class Transforma {
 	
 	
 	public Transforma(Dataset ds){
-		
 		comando = new String[3];
 		comando[0] = "bash";
 		comando[1] = "-c";
@@ -41,8 +40,13 @@ public class Transforma {
 			if(dataset.getServidorBD() == "MYSQL"){
 				comando[2] = mysqlStringConnectionToMapping(dataset);	
 			}
+			else if(dataset.getServidorBD() == "POSTGRESQL") {
+				System.out.println(postgresStringConnectionToMapping(dataset));
+				comando[2] = postgresStringConnectionToMapping(dataset);
+			}
 			Process p = Runtime.getRuntime().exec(comando);
 			if(p != null) {
+				System.out.println("postgres(p): "+p);
 				JOptionPane.showMessageDialog(null,"Sucessfull Dataset Choose!");
 			}
 		} catch (Exception e) {
@@ -51,15 +55,13 @@ public class Transforma {
 	}	
 	
 	public void rmlToNTriple(String in, Dataset ds){
-		System.out.println("dentro de rml-to-ntriple");
 		try {
-			System.out.println("dentro do ''try de rml-to-ntriple");
+			
 			comando[2] = mysqlStringConnectionToDump(in, ds);
-			if(comando[2] != ""){
-				System.out.println("***.generate_dump string ok");
+			Process p = Runtime.getRuntime().exec(comando);
+			if(p != null) {
+				JOptionPane.showMessageDialog(null,"Sucessfull Dump to N-triple!");
 			}
-			Runtime.getRuntime().exec(comando);
-			System.out.println("método(rml-to-ntriple: comando dump to ntriple: "+comando);
 		} catch (Exception e) {
 			e.getStackTrace();
 		}
@@ -77,8 +79,7 @@ public class Transforma {
 	}
 
 	public String mysqlStringConnectionToDump(String in_ttl, Dataset ds){
-		System.out.println("Dentro de string dump-rdf");
-		System.out.println("Dados do bd: "+ds);
+		
 		String config =
 		"resources/d2rqlib/dump-rdf"+
 				" -u "+ds.getUsuario()+
@@ -87,7 +88,18 @@ public class Transforma {
 				" -j jdbc:mysql://localhost/"+ds.getNomeDataset()+
 				" /tmp/"+in_ttl+
 				" > /tmp/"+ds.getNomeArquivoSaida()+".nt";
-		System.out.println("***string config dump-rdf:\n"+config);
+		
 		return config;
+	}
+	
+	public String postgresStringConnectionToMapping(Dataset ds){
+		
+		return "resources/d2rqlib/generate-mapping"+
+			   " -u "+ds.getUsuario()+
+			   " -p "+ds.getSenha()+
+			   " -d org.postgresql.Driver --r2rml"+
+			   " --tables "+ds.getNomeTabela()+ 
+			   " jdbc:postgresql://localhost:5432/"+ds.getNomeDataset()+
+			   " > /tmp/"+ds.getNomeArquivoSaida()+".ttl";
 	}
 }

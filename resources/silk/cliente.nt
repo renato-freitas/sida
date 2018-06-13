@@ -1,0 +1,10 @@
+<http://localhost:2020/cliente/1> <http://www.lar.com.br#cpf> "740" .
+<http://localhost:2020/cliente/2> <http://www.lar.com.br#cpf> "120" .
+<http://localhost:2020/cliente/1> <http://xmlns.com/foaf/0.1/name> "renato silva freitas" .
+<http://localhost:2020/cliente/2> <http://xmlns.com/foaf/0.1/name> "ravi maia" .
+<http://localhost:2020/cliente/1> <http://www.lar.com.br#id> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://localhost:2020/cliente/2> <http://www.lar.com.br#id> "2"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://localhost:2020/cliente/1> <http://www.w3.org/2000/01/rdf-schema#label> "cliente #1" .
+<http://localhost:2020/cliente/2> <http://www.w3.org/2000/01/rdf-schema#label> "cliente #2" .
+<http://localhost:2020/cliente/1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.lar.com.br#Cliente> .
+<http://localhost:2020/cliente/2> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.lar.com.br#Cliente> .

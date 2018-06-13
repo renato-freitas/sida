@@ -1,0 +1,60 @@
+<Silk>
+<Prefixes>
+    <Prefix id="rdf" namespace="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix id="dbpp" namespace="http://dbpedia.org/property/"/>
+    <Prefix id="dcterm" namespace="http://purl.org/dc/terms/"/>
+    <Prefix id="dc" namespace="http://purl.org/dc/elements/1.1/"/>
+    <Prefix id="owl" namespace="http://www.w3.org/2002/07/owl#"/>
+    <Prefix id="foaf" namespace="http://xmlns.com/foaf/0.1/"/>
+    <Prefix id="rdfs" namespace="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Prefix id="sida" namespace="http://www.lar.com.br#"/>
+</Prefixes>
+<DataSources>
+    <Dataset id="clienteDB" type="file">
+        <Param name="file" value="cliente.nt"/>
+        <Param name="format" value="N-TRIPLE"/>
+    </Dataset>
+    <Dataset id="servidorDB" type="file">
+        <Param name="file" value="servidor.nt"/>
+        <Param name="format" value="N-TRIPLE"/>
+    </Dataset>
+</DataSources>
+<Interlinks>
+    <Interlink id="Cliente">
+        <SourceDataset dataSource="cliente" var="a">
+            <RestrictTo>
+                ?a ?p ?v .
+            </RestrictTo>
+        </SourceDataset>
+        <TargetDataset dataSource="servidor" var="b">
+            <RestrictTo>
+                ?b ?p ?v .
+            </RestrictTo>
+        </TargetDataset>
+        <LinkageRule linkType="owl:sameAs">
+            <Aggregate id="unnamed_7" required="false" weight="1" type="min">
+            <Compare id="unnamed_6" required="false" weight="1" metric="levenshteinDistance" threshold="0.0"
+indexing="true">
+                <TransformInput id="unnamed_8" function="lowerCase">
+                    <Input id="unnamed_1" path="?a/sida:cpf"/>
+                </TransformInput>
+                <TransformInput id="unnamed_9" function="lowerCase">
+                    <Input id="unnamed_2" path="?b/sida:cpf"/>
+                </TransformInput>
+                <Param name="minChar" value="0"/>
+                <Param name="maxChar" value="z"/>
+            </Compare>
+            </Aggregate>
+            <Filter/>
+        </LinkageRule>
+    </Interlink>
+</Interlinks>
+<Transforms>
+</Transforms>
+<Outputs>
+    <Dataset id="db_cli_ser" type="file">
+        <Param name="file" value="links.nt"/>
+        <Param name="format" value="N-TRIPLE"/>
+    </Dataset>
+</Outputs>
+</Silk>

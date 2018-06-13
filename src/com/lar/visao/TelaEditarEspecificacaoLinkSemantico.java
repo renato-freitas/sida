@@ -4,8 +4,8 @@ import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -13,6 +13,7 @@ import java.util.Scanner;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -20,49 +21,55 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.border.EmptyBorder;
 
+import com.lar.util.Comum;
+
 public class TelaEditarEspecificacaoLinkSemantico extends JFrame{
 
 	private static final long serialVersionUID = 1L;
 
-	private JFrame frame = new JFrame("Editar Arquivo LinkSpec");
+	private JFrame frame = new JFrame("To Edit LinkSpec.xml File");
 	private JTextArea textArea = new JTextArea();
 
-	private String storeAllString="";
+	private String storeAllString = "";
+	private String nomeArquivoXml = "";
+	private String chooseAFile = "Choose a file";
 	
 	private JLabel lblDatasetSource = new JLabel("Dataset Source");
 	private JLabel lblDatasetTarget= new JLabel("Dataset Target");
-	private JLabel lblEditarArquivoTmp= new JLabel("Escolher arquivo para edição");
+	private JLabel lblEditarArquivoTmp= new JLabel("Choose file to edition");
 
-	private JButton saveCloseBtn = new JButton("Salvar as mudanças e fechar");
-	private JButton closeButton = new JButton("Sair sem salvar");
-	private JButton btnSalvar = new JButton("Salvar");
-	private JButton btnEspecificarLinks = new JButton("Especificar Links");
+	private JButton btnSalvar = new JButton("Save");
+	private JButton closeButton = new JButton("Close without save");
+	private JButton btnEspecificarLinks = new JButton("To specify Semantic links");
 	private JComboBox<String> cbDatasetSource = new JComboBox<String>();
 	private JComboBox<String> cbDatasetTarget = new JComboBox<String>();
 	private JComboBox<String> cbArquivoEdicao = new JComboBox<String>();
+	
+	private JFileChooser caixa_dialogo;
 
-	int count = 1;
+	int editing;
+	int count = 0;
 
 	public TelaEditarEspecificacaoLinkSemantico() {
 		panels();
 		carregarCombos();
 		carregarComboArquivosTemporarios();
+		editing = 0;
 	}
-
-	
 
 	private void panels(){        
 		JPanel panel = new JPanel(new GridLayout(1,1));
 		panel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		JPanel rightPanel = new JPanel(new GridLayout(15,0,10,10));
 		rightPanel.setBorder(new EmptyBorder(15, 5, 5, 10));
+		
+		caixa_dialogo = new JFileChooser();
 
 		JScrollPane scrollBarForTextArea=new JScrollPane(textArea,JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		panel.add(scrollBarForTextArea); 
 		frame.add(panel);
 		frame.getContentPane().add(rightPanel,BorderLayout.EAST);
 		rightPanel.add(btnSalvar);
-		rightPanel.add(saveCloseBtn);
 		rightPanel.add(closeButton);
 		rightPanel.add(lblDatasetSource);
 		rightPanel.add(cbDatasetSource);
@@ -76,9 +83,14 @@ public class TelaEditarEspecificacaoLinkSemantico extends JFrame{
 		btnSalvar.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				saveBtn(); ++count;
-				cbArquivoEdicao.removeAllItems();
+				if(editing == 0) {
+					++count;
+					editing = 1;
+				}
+				saveBtn(); 
+				//cbArquivoEdicao.removeAllItems();
 				carregarComboArquivosTemporarios();
+				System.out.println("editing: "+editing);
 			}
 		});
 		closeButton.addActionListener(new ActionListener() {
@@ -88,7 +100,7 @@ public class TelaEditarEspecificacaoLinkSemantico extends JFrame{
 
 			}
 		});
-		saveCloseBtn.addActionListener(new ActionListener() {
+		/*saveCloseBtn.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent e) {
 				saveBtn();
@@ -96,22 +108,18 @@ public class TelaEditarEspecificacaoLinkSemantico extends JFrame{
 
 			}
 		});
-		
+		*/
 		cbDatasetSource.addActionListener(new ActionListener() {
-			
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				//carregaArquivoParaAreaDeTexto();
-				
 			}
 		});
 		
 		cbDatasetTarget.addActionListener(new ActionListener() {
-			
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				//carregaArquivoParaAreaDeTexto();
-				
 			}
 		});
 		cbArquivoEdicao.addActionListener(new ActionListener() {
@@ -124,6 +132,8 @@ public class TelaEditarEspecificacaoLinkSemantico extends JFrame{
 		btnEspecificarLinks.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				gerarTemplateLinkSpec();
+				editing = 0;
+				System.out.println("Editing: "+editing);
 			}
 		});
 		
@@ -133,24 +143,32 @@ public class TelaEditarEspecificacaoLinkSemantico extends JFrame{
 	}
 
 	private void saveBtn(){
-		File file = null;
-		FileWriter out=null;
-		try {
-			file = new File("/tmp/linkSpec"+count+".xml");
-			out = new FileWriter(file);     
-			out.write(textArea.getText());
-			out.close();
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		abrirDialogo();
+	}
+	
+	public void abrirDialogo() {
+		int retorno = caixa_dialogo.showSaveDialog(textArea);
+        
+        if (retorno == JFileChooser.APPROVE_OPTION)
+        {
+            File arquivo = caixa_dialogo.getSelectedFile();
+            try
+            {
+                BufferedWriter grava = new BufferedWriter(new FileWriter(arquivo));
+                grava.write(textArea.getText());
+                grava.close();
+            }
+            catch (IOException e) 
+            {               
+                e.printStackTrace();
+            }
+        }   
 	}
 
 	public void carregarCombos(){
 		File[] files = new File("/tmp").listFiles();
-		cbDatasetSource.addItem("Selecione um arquivo");
-		cbDatasetTarget.addItem("Selecione um arquivo");
+		cbDatasetSource.addItem(chooseAFile);
+		cbDatasetTarget.addItem(chooseAFile);
 		
 		for (File file : files) {
 		    if (file.isFile() & file.getName().endsWith(".nt")) {
@@ -161,8 +179,7 @@ public class TelaEditarEspecificacaoLinkSemantico extends JFrame{
 	}
 	public void carregarComboArquivosTemporarios(){
 		File[] files = new File("/tmp").listFiles();
-		cbArquivoEdicao.addItem("Selecione um arquivo");
-		
+		cbArquivoEdicao.addItem(chooseAFile);
 		
 		for (File file : files) {
 		    if (file.isFile() & file.getName().endsWith(".xml")) {
@@ -173,9 +190,9 @@ public class TelaEditarEspecificacaoLinkSemantico extends JFrame{
 	
 	private void carregaArquivoParaAreaDeTexto(){
 		storeAllString = "";
-		String nomeArquivoXml = cbArquivoEdicao.getSelectedItem().toString();
+		nomeArquivoXml = cbArquivoEdicao.getSelectedItem().toString();
 		try{    
-			if(nomeArquivoXml != "Selecione um arquivo"){
+			if(nomeArquivoXml != chooseAFile){
 				FileReader read = new FileReader("/tmp/"+nomeArquivoXml);
 				Scanner scan = new Scanner(read);
 				while(scan.hasNextLine()){
@@ -197,7 +214,7 @@ public class TelaEditarEspecificacaoLinkSemantico extends JFrame{
 		String dsSource = cbDatasetSource.getSelectedItem().toString();
 		String dsTarget = cbDatasetTarget.getSelectedItem().toString();
 		try{    
-			if(dsSource != "Selecione um arquivo" & dsTarget != "Selecione um arquivo"){
+			if(dsSource != chooseAFile & dsTarget != chooseAFile){
 				textArea.setText(templateLinkSpec(dsSource, dsTarget, "links.nt"));
 			}
 		}
@@ -208,6 +225,8 @@ public class TelaEditarEspecificacaoLinkSemantico extends JFrame{
 	}
 	
 	private String templateLinkSpec(String dsSource, String dsTarget, String outFile){
+		String source = Comum.cut_extension(dsSource);
+		String target = Comum.cut_extension(dsTarget);
 		return "<Silk>\n"+
   "<Prefixes>\n"+
   "    <Prefix id=\"rdf\" namespace=\"http://www.w3.org/1999/02/22-rdf-syntax-ns#\"/>\n"+
@@ -217,52 +236,38 @@ public class TelaEditarEspecificacaoLinkSemantico extends JFrame{
   "    <Prefix id=\"owl\" namespace=\"http://www.w3.org/2002/07/owl#\"/>\n"+
   "    <Prefix id=\"foaf\" namespace=\"http://xmlns.com/foaf/0.1/\"/>\n"+
   "    <Prefix id=\"rdfs\" namespace=\"http://www.w3.org/2000/01/rdf-schema#\"/>\n"+
-  "    <Prefix id=\"dbpediaowl\" namespace=\"http://dbpedia.org/ontology/\"/>\n"+
-  "    <Prefix id=\"linkedmdb\" namespace=\"http://data.linkedmdb.org/resource/movie/\"/>\n"+
+  "    <Prefix id=\"vocab\" namespace=\"http://ontologia_domain#\"/>\n"+
   "</Prefixes>\n"+
   "<DataSources>\n"+
-  "    <Dataset id=\""+cut_extension(dsSource)+"DB\" type=\"file\">\n"+
+  "    <Dataset id=\""+source+"\" type=\"file\">\n"+
   "        <Param name=\"file\" value=\""+dsSource+"\"/>\n"+
-  "        <Param name=\"format\" value=\"N-TRIPLE\"/>\n"+
+  "        <Param name=\"format\" value=\"N-Triples\"/>\n"+
+  "        <Param name=\"graph\" value=\"\"/>\n"+
   "    </Dataset>\n"+
-  "    <Dataset id=\""+cut_extension(dsTarget)+"DB\" type=\"file\">\n"+
+  "    <Dataset id=\""+target+"\" type=\"file\">\n"+
   "        <Param name=\"file\" value=\""+dsTarget+"\"/>\n"+
-  "        <Param name=\"format\" value=\"N-TRIPLE\"/>\n"+
+  "        <Param name=\"format\" value=\"N-Triples\"/>\n"+
+  "        <Param name=\"graph\" value=\"\"/>\n"+
   "    </Dataset>\n"+
   "</DataSources>\n"+
-    
   "<Interlinks>\n"+
-  "    <Interlink id=\"movies\">\n"+
-  "        <SourceDataset dataSource=\""+cut_extension(dsSource)+"\" var=\"a\">\n"+
+  "    <Interlink id=\"task\">\n"+
+  "        <SourceDataset dataSource=\""+source+"\" var=\"a\" typeUri=\"\">\n"+
   "            <RestrictTo>\n"+
   "                ?a ?p ?v .\n"+
   "            </RestrictTo>\n"+
   "        </SourceDataset>\n"+
-  "        <TargetDataset dataSource=\""+cut_extension(dsTarget)+"\" var=\"b\">\n"+
+  "        <TargetDataset dataSource=\""+target+"\" var=\"b\" typeUri=\"\">\n"+
   "            <RestrictTo>\n"+
   "                ?b ?p ?v .\n"+
   "            </RestrictTo>\n"+
   "        </TargetDataset>\n"+
         
   "        <LinkageRule linkType=\"owl:sameAs\">\n"+
-  "            <Aggregate id=\"unnamed_7\" required=\"false\" weight=\"1\" type=\"min\">\n"+
-  "            <Compare id=\"unnamed_6\" required=\"false\" weight=\"1\" metric=\"levenshteinDistance\" threshold=\"0.0\"\n"+
-                   "indexing=\"true\">\n"+
-  "                <TransformInput id=\"unnamed_8\" function=\"lowerCase\">\n"+
-  "                    <Input id=\"unnamed_1\" path=\"?a/foaf:name\"/>\n"+
-  "                </TransformInput>\n"+
-  "                <TransformInput id=\"unnamed_9\" function=\"lowerCase\">\n"+
-  "                    <Input id=\"unnamed_2\" path=\"?b/rdfs:label\"/>\n"+
-  "                </TransformInput>\n"+
-  "                <Param name=\"minChar\" value=\"0\"/>\n"+
-  "                <Param name=\"maxChar\" value=\"z\"/>\n"+
-  "            </Compare>\n"+
-  
-  "            <Compare id=\"unnamed_5\" required=\"false\" weight=\"1\" metric=\"date\" threshold=\"400.0\" indexing=\"true\">\n"+
-  "                <Input id=\"unnamed_4\" path=\"?a/dbpediaowl:releaseDate\"/>\n"+
-  "                <Input id=\"unnamed_3\" path=\"?b/linkedmdb:initial_release_date\"/>\n"+
-  "            </Compare>\n"+
-  "            </Aggregate>\n"+
+  "            <Compare id=\"equality1\" required=\"false\" weight=\"1\" metric=\"equality\" threshold=\"0.0\" indexing=\"true\">\n"+
+  "                <Input id=\"sourcePath1\" path=\"/sida:cpf\"/>\n"+
+  "                <Input id=\"targetPath1\" path=\"/sida:cpf\"/>\n"+
+  "            </Compare>"+
   "            <Filter/>\n"+
   "        </LinkageRule>\n"+
   "    </Interlink>\n"+
@@ -270,17 +275,17 @@ public class TelaEditarEspecificacaoLinkSemantico extends JFrame{
   "<Transforms>\n"+
   "</Transforms>\n"+
   "<Outputs>\n"+
-  "    <Dataset id=\"DBpedia\" type=\"file\">\n"+
+  "    <Dataset id=\""+source+"_"+target+"\" type=\"file\">\n"+
   "        <Param name=\"file\" value=\"links.nt\"/>\n"+
-  "        <Param name=\"format\" value=\"N-TRIPLE\"/>\n"+
+  "        <Param name=\"format\" value=\"N-Triples\"/>\n"+
   "    </Dataset>\n"+
   "</Outputs>\n"+
 "</Silk>";
 	}
 	
-	
-	private String cut_extension(String in) {
+	/**Método para obter o nome da datasource sem a extensão do arquivo*/
+	/*private String cut_extension(String in) {
 		return in.substring(0, in.length() - 3);
-	}
+	}*/
 }
 

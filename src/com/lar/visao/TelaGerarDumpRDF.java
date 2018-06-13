@@ -1,7 +1,5 @@
 package com.lar.visao;
 
-
-
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
@@ -17,6 +15,7 @@ import javax.swing.JTextField;
 
 import com.lar.modelo.Dataset;
 import com.lar.negocio.Transforma;
+import com.lar.util.Comum;
 
 
 public class TelaGerarDumpRDF extends JFrame {
@@ -41,7 +40,7 @@ public class TelaGerarDumpRDF extends JFrame {
 	JButton btnSair = new JButton("sair");
 
 	public TelaGerarDumpRDF(String fileR2rml) {
-		super("SEMI - Gerar Dump RDF");
+		super("SIDA - Gerar Dump RDF");
 
 		JPanel pCentral = new JPanel(new GridBagLayout());
 
@@ -100,6 +99,9 @@ public class TelaGerarDumpRDF extends JFrame {
             BorderFactory.createEtchedBorder(), "Arquivo de entrada e saída"));
 
         txtArquivoR2rml.setText(fileR2rml);
+        if(fileR2rml.contains(".")) {
+        	txtArquivoNt.setText(Comum.cut_extension(fileR2rml));
+        }
 
 		// add the panel to this frame
 		add(pCentral);
@@ -125,9 +127,6 @@ public class TelaGerarDumpRDF extends JFrame {
 			
 			if(jb.getText() == "Gerar"){
                 new Transforma(txtArquivoR2rml.getText(), obtemDadosFormulario());
-                    //.setDataset(obtemDadosFormulario());;
-                //System.out.println("Chegou na tela gerar dump com: "+
-                //    txtArquivoR2rml.getText()+"e "+ txtArquivoNt.getText());
 			}
 			else {
 				System.out.println(jb.getText());

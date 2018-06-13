@@ -25,15 +25,16 @@ public class TelaEditarArquivoMapeamentoR2ML extends JFrame{
 
 	private static final long serialVersionUID = 1L;
 
-	private JFrame frame = new JFrame("Editar Arquivo R2RML");
+	private JFrame frame = new JFrame("To edit R2RML file");
 	private JTextArea textArea = new JTextArea();
 
 	private String storeAllString="";
+	private String chooseAFile = "Choose a file";
 
-	private JButton saveCloseBtn = new JButton("Salvar as mudanças e fechar");
-	private JButton closeButton = new JButton("Sair sem salvar");
-	private JButton btnSalvar = new JButton("Salvar");
-	private JButton btnGerarDumpRDF = new JButton("Gerar Dump RDF");
+	private JButton btnSalvar = new JButton("Save");
+	private JButton saveCloseBtn = new JButton("Save Changes and Close");
+	private JButton closeButton = new JButton("Close withou save");
+	private JButton btnGerarDumpRDF = new JButton("Generate RDF Dump");
 	private JComboBox<String> cbArquivosTTL = new JComboBox<String>();
 
 
@@ -54,10 +55,11 @@ public class TelaEditarArquivoMapeamentoR2ML extends JFrame{
 		panel.add(scrollBarForTextArea); 
 		frame.add(panel);
 		frame.getContentPane().add(rightPanel,BorderLayout.EAST);
+		rightPanel.add(cbArquivosTTL);
 		rightPanel.add(btnSalvar);
 		rightPanel.add(saveCloseBtn);
 		rightPanel.add(closeButton);
-		rightPanel.add(cbArquivosTTL);
+		
 
 		rightPanel.add(btnGerarDumpRDF);
 		
@@ -123,12 +125,9 @@ public class TelaEditarArquivoMapeamentoR2ML extends JFrame{
 	public void listarArquivoParaEdicao(){
 		
 		File[] files = new File("/tmp").listFiles();
-		cbArquivosTTL.addItem("Selecione um arquivo");
-		//System.out.println("qtde de arquivos: "+files.length);
+		cbArquivosTTL.addItem(chooseAFile);
 		for (File file : files) {
-			//System.out.println(file.getName());
 		    if (file.isFile() & file.getName().endsWith(".ttl")) {
-				//System.out.println(file.getName());
 		        cbArquivosTTL.addItem(file.getName());
 		    }
 		}
@@ -138,7 +137,7 @@ public class TelaEditarArquivoMapeamentoR2ML extends JFrame{
 		storeAllString = "";
 		String nomeArquivoTtl = cbArquivosTTL.getSelectedItem().toString();
 		try{    
-			if(nomeArquivoTtl != "Selecione um arquivo"){
+			if(nomeArquivoTtl != chooseAFile){
 				FileReader read = new FileReader("/tmp/"+nomeArquivoTtl);
 				Scanner scan = new Scanner(read);
 				while(scan.hasNextLine()){

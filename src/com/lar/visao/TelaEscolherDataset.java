@@ -43,7 +43,7 @@ public class TelaEscolherDataset extends JFrame {
 	JButton btnOK = new JButton("Ok");
 	JButton btnSair = new JButton("Close");
 
-	private String[] servidoresBD = { "Choose a DB-server", "MYSQL", "ORACLE", "POSTGRES", "MS-SQLSERVER" };
+	private String[] servidoresBD = { "Choose a DB-server", "MYSQL", "ORACLE", "POSTGRESQL", "MS-SQLSERVER" };
 
 	public TelaEscolherDataset() {
 		super("Choose Dataset");
@@ -147,5 +147,4 @@ public class TelaEscolherDataset extends JFrame {
 
 		}
 	}
-
 }
