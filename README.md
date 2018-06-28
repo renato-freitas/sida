@@ -16,7 +16,7 @@ Renato Freitas.
 Esse sistema usa as tecnologias Linked Data e Web Semântica para realizar, de forma semi-automática, a integração de datasets.
 Ferramentas como: D2RQ-R2RML, SILK, SIEVE, LDIF foram utilizadas para construção do SIDA.
 
-# Especificação baseado no trabalho: 
+# Especificação baseada no trabalho: 
 ## Using Linked Data in Data Integration for Maternal and Infant Death Risk of the SUS in the GISSA Project
 ``` https://doi.org/10.1145/3126858.3131606 ```
 1. Selecionar as fontes de dados que alimentarão a aplicação.
